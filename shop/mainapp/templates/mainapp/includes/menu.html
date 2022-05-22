@@ -1,0 +1,13 @@
+<div class="header clearfix">
+	<a href="{% url 'app:index' %}" class="logo"></a>
+	<ul class="menu">
+		<li><a href="{% url 'app:index' %}"
+		       {% if request.resolver_match.url_name == "index" %} class="active" {% endif %}>домой</a></li>
+		<li><a href="{% url 'app:products' %}"
+		       {% if request.resolver_match.url_name == "products" %} class="active" {% endif %}>продукты</a></li>
+		<li><a href="{% url 'app:contacts' %}"
+				{% if request.resolver_match.url_name == "contacts" %} class="active" {% endif %}>контакты</a></li>
+	</ul>
+	<a href="#" class="search"></a>
+	<a href="#" class="basket"></a>
+</div>

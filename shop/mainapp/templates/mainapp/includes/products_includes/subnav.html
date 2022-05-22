@@ -1,0 +1,9 @@
+<ul class="links-menu">
+	{% for item in links_menu %}
+		<li>
+			<a href="{% url 'app:products_category' item.href %}"
+		       {% if request.resolver_match.kwargs.category == item.href %} class="active" {%endif%}>{{item.title}}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
