@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mainapp.models import Product, Category
+from mainapp.models import Product, Category, Contacts
 import json
 
 
@@ -18,8 +18,7 @@ def products(request, category_id=None):
     return render(request, "mainapp/products.html", context)
 
 def contacts(request):
-    context = {}
-    with open("mainapp/fixtures/contacts_data.json", "r", encoding="utf-8") as _data:
-        data= json.load(_data)
-        context.update({"locations": data})
+    context = {
+        "locations": Contacts.objects.filter(is_active=True)
+    }
     return render(request, "mainapp/contact.html", context)
