@@ -1,20 +1,20 @@
 from django.shortcuts import render
+from mainapp.models import Product, Category
 import json
+
+
 def index(request):
-    context = {}
+    context = {
+        "products": Product.objects.all()[:5]
+    }
     return render(request, "mainapp/index.html", context)
 
-def products(request, category=None):
-    context = {}
-    links_menu = [
-        {"href": "products_all", "title": "Все"},
-        {"href": "home", "title": "Дом"},
-        {"href": "office", "title": "Офис"},
-        {"href": "modern", "title": "Модерн"},
-        {"href": "classic", "title": "Классика"},
-    ]
-    print(category, "category")
-    context.update({"links_menu": links_menu})
+def products(request, category_id=None):
+    products_category = Product.objects
+    context = {
+        "links_menu": Category.objects.all(),
+        "products": products_category.all() if not category_id else products_category.filter(category=category_id)
+    }
     return render(request, "mainapp/products.html", context)
 
 def contacts(request):
