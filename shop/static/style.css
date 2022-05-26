@@ -713,6 +713,7 @@ td:first-child {
 
 .location {
 	padding: 0px 97px;
+	display: flex;
 }
 .location-1 {
 	height: 368px;
