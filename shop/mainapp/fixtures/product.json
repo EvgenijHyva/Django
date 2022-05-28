@@ -1,0 +1,77 @@
+[
+{
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-05-25T22:38:44.056Z",
+        "updated_at": "2022-05-26T08:50:22.140Z",
+        "name": "Диван",
+        "description": "да просто диван который нашли на свалке, можно присесть но не советуем",
+        "short_desc": "самый обычный диван",
+        "image": "product/product-3-sm.jpg",
+        "price": "10500.00",
+        "quantity": 5,
+        "category": 1
+    }
+},
+{
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-05-26T08:45:19.351Z",
+        "updated_at": "2022-05-26T08:45:19.351Z",
+        "name": "Кресло",
+        "description": "зеленое кресло на колесах",
+        "short_desc": "присядь",
+        "image": "product/promo-img2.jpg",
+        "price": "80000.00",
+        "quantity": 19,
+        "category": 2
+    }
+},
+{
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+        "created_at": "2022-05-26T08:47:06.127Z",
+        "updated_at": "2022-05-26T08:47:06.127Z",
+        "name": "кресло белое",
+        "description": "нашли перед входом в магазин",
+        "short_desc": "белое как вино",
+        "image": "product/product-21.jpg",
+        "price": "56000.00",
+        "quantity": 4,
+        "category": 2
+    }
+},
+{
+    "model": "mainapp.product",
+    "pk": 5,
+    "fields": {
+        "created_at": "2022-05-26T08:49:08.148Z",
+        "updated_at": "2022-05-26T08:49:08.148Z",
+        "name": "покоцаный стул",
+        "description": "сделаный без любви 🧡",
+        "short_desc": "присядь на стул",
+        "image": "product/promo-img1.jpg",
+        "price": "100.00",
+        "quantity": 100,
+        "category": 3
+    }
+},
+{
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+        "created_at": "2022-05-26T08:48:01.007Z",
+        "updated_at": "2022-05-26T08:48:01.007Z",
+        "name": "синие кресла",
+        "description": "посидите спина к спине",
+        "short_desc": "синие",
+        "image": "product/product-2.jpg",
+        "price": "67492.00",
+        "quantity": 2,
+        "category": 2
+    }
+}
+]

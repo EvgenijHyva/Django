@@ -256,6 +256,8 @@ html, body {
 }
 
 .tab-content {
+    overflow-x: overlay;
+    overflow-y: hidden;
 	margin-top: 50px;
 	display: flex;
 	justify-content: space-between;
@@ -1070,4 +1072,25 @@ td:first-child {
 }
 .related-products a:hover .text{
 	display: block;
+}
+::-webkit-scrollbar {
+  width: 3px;
+  height: 7px;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #9ea9e5;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius:25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

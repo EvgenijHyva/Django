@@ -1,0 +1,42 @@
+[
+{
+    "model": "mainapp.category",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-05-25T22:31:16.924Z",
+        "updated_at": "2022-05-25T22:31:16.924Z",
+        "name": "Диваны",
+        "description": "Новые диваны"
+    }
+},
+{
+    "model": "mainapp.category",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-05-25T22:35:16.254Z",
+        "updated_at": "2022-05-25T22:35:16.254Z",
+        "name": "Кресла",
+        "description": "Потрепаные кресла видавшие жизнь и даже не одну"
+    }
+},
+{
+    "model": "mainapp.category",
+    "pk": 4,
+    "fields": {
+        "created_at": "2022-05-25T22:53:14.113Z",
+        "updated_at": "2022-05-25T22:53:14.113Z",
+        "name": "Столы",
+        "description": "Столы на 3 ножках"
+    }
+},
+{
+    "model": "mainapp.category",
+    "pk": 3,
+    "fields": {
+        "created_at": "2022-05-25T22:51:30.993Z",
+        "updated_at": "2022-05-25T22:51:30.993Z",
+        "name": "Стулья",
+        "description": "Стулья для дома"
+    }
+}
+]
