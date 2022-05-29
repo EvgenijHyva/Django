@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("mainapp.urls", namespace="app")),
-
+    path("auth/", include("authapp.urls", namespace="auth"))
 ]
 
 if settings.DEBUG:

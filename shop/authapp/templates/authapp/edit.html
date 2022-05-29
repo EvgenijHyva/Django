@@ -1,0 +1,17 @@
+{% extends "authapp/base.html" %}
+
+{% block content %}
+	<form class="form-horizontal col-10 " method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p}}
+		<div style="display:flex;">
+			<button class="btn btn-primary" type="submit">Сохранить</button>
+			<button class="btn btn-secondary" type="reset">Очистить</button>
+		</div>
+	</form>
+	<a href="{% url 'app:index' %}"
+		class="btn btn-info" style="width:100%;">Вернутся</a>
+	<div class="user_avatar">
+		<img src="/media/{{user.avatar}}" alt="Аватарки нет :(" >
+	</div>
+{% endblock %}

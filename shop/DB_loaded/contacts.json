@@ -1,0 +1,72 @@
+[
+{
+    "model": "mainapp.contacts",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-05-26T10:36:59.999Z",
+        "updated_at": "2022-05-26T10:43:16.378Z",
+        "city": "Москва",
+        "phone": 78888888888,
+        "address": "В пределах МКАД, 4",
+        "index": null,
+        "email": "info@mail.ru",
+        "is_active": false
+    }
+},
+{
+    "model": "mainapp.contacts",
+    "pk": 3,
+    "fields": {
+        "created_at": "2022-05-26T10:36:59.999Z",
+        "updated_at": "2022-05-26T10:36:59.999Z",
+        "city": "Москва",
+        "phone": 78888888888,
+        "address": "В пределах МКАД, 3",
+        "index": null,
+        "email": "info@mail.ru",
+        "is_active": true
+    }
+},
+{
+    "model": "mainapp.contacts",
+    "pk": 4,
+    "fields": {
+        "created_at": "2022-05-26T10:36:59.999Z",
+        "updated_at": "2022-05-26T10:36:59.999Z",
+        "city": "Москва",
+        "phone": 78888888888,
+        "address": "В пределах МКАД, 1",
+        "index": null,
+        "email": "info@mail.ru",
+        "is_active": true
+    }
+},
+{
+    "model": "mainapp.contacts",
+    "pk": 5,
+    "fields": {
+        "created_at": "2022-05-26T10:36:59.999Z",
+        "updated_at": "2022-05-26T10:43:23.159Z",
+        "city": "Москва",
+        "phone": 78888888888,
+        "address": "В пределах МКАД, 2",
+        "index": 24667,
+        "email": "info@mail.ru",
+        "is_active": false
+    }
+},
+{
+    "model": "mainapp.contacts",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-05-26T10:36:59.999Z",
+        "updated_at": "2022-05-26T10:36:59.999Z",
+        "city": "СПБ",
+        "phone": 777777007,
+        "address": "улица",
+        "index": 302222,
+        "email": "address@add.res",
+        "is_active": true
+    }
+}
+]
