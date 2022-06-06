@@ -4,8 +4,9 @@ from basketapp.models import Basket
 from mainapp.models import Product, Category, Contacts
 
 
-def get_basket(user: object) -> list:
-    return [] if not user.is_authenticated else Basket.objects.filter(user=user)
+def get_basket(user: object) -> int:
+    return 0 if not user.is_authenticated \
+        else sum(list(Basket.objects.filter(user=user).values_list("quantity", flat=True)))
 
 def index(request):
     context = {
