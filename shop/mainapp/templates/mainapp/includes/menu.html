@@ -28,6 +28,12 @@
 	</ul>
 	<a href="#" class="search"></a>
 	<a href="{% url 'basket:items' %}" class="basket">
-		<span style="display: block; margin-left: 40px; color:black; "> {{basket}} </span>
+		<span style="display: inline-block; margin-left: 35px; color: black; ">
+			{% if basket %}
+				{{ basket.total_cost }} руб ({{ basket.total_quantity }}шт.)
+			{% else %}
+				{{ 0|floatformat:2 }}
+			{% endif %}
+		</span>
 	</a>
 </div>

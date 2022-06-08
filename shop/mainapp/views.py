@@ -1,12 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
-from basketapp.models import Basket
 from mainapp.models import Product, Category, Contacts
-
-
-def get_basket(user: object) -> int:
-    return 0 if not user.is_authenticated \
-        else sum(list(Basket.objects.filter(user=user).values_list("quantity", flat=True)))
+from basketapp.services import get_basket, get_hot_product
 
 def index(request):
     context = {
@@ -24,7 +19,7 @@ def products(request, category_id=None):
         "products": product_list,
         "category": category_item,
         "basket": get_basket(request.user),
-        "hot_product": Product.objects.all().order_by("?").first(),
+        "hot_product": get_hot_product(),
         "same_products": product_list.order_by("?")[:3]
     }
     if category_id:
@@ -37,3 +32,12 @@ def contacts(request):
         "basket": get_basket(request.user)
     }
     return render(request, "mainapp/contact.html", context)
+
+
+def product(request, pk):
+    context = {
+        "links_menu": Category.objects.all(),
+        "product": get_object_or_404(Product, pk=pk),
+        "basket": get_basket(request.user),
+    }
+    return render(request, "mainapp/product_detail.html", context)
