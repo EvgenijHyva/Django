@@ -9,6 +9,7 @@ class Category(TimeStampedModel):
 
     name = models.CharField(max_length=64, verbose_name="Название", unique=True)
     description = models.TextField(verbose_name="Описание", blank=True)
+    is_active = models.BooleanField(verbose_name="существует", default=True)
 
     def __str__(self):
         return f"{self.pk} {self.name}"
@@ -27,9 +28,10 @@ class Product(TimeStampedModel):
     price = models.DecimalField(max_digits=12, decimal_places=2, verbose_name="Цена")
     quantity = models.PositiveSmallIntegerField(default=0, verbose_name="Количество")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория")
+    is_active = models.BooleanField(verbose_name="существует", default=True)
 
     def __str__(self):
-        return f"{self.name} ({self.category.pk}:{self.category.name})"
+        return f"{self.name}"
 
 
 class Contacts(TimeStampedModel):
