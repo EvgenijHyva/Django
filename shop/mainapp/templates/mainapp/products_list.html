@@ -20,7 +20,7 @@
 		<div class="products">
 			{% for product in products %}
 			<div class="block">
-					<a href="{% url 'basket:add_item' product.pk %}">
+					<a href="{% url 'app:single_product' product.pk %}">
 						<img src="/media/{{product.image}}" style="width:370px; height:370px" alt="">
 						<div class="text">
 							<img src="{% static 'img/icon-hover.png' %}" alt="img">

@@ -17,7 +17,7 @@
 		<div class="tab-content">
 			{% for product in products %}
 			<div class="block">
-				<a href="{% url 'app:products' %}">
+				<a href="{% url 'app:single_product' product.pk %}">
 					<img src="{% if product.image %}/media/{{ product.image }}
 						{% else %}{% static 'img/product-1.jpg' %}{% endif %}"
 					     alt="image"

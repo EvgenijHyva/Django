@@ -7,7 +7,8 @@
 	{% for item in links_menu %}
 		<li>
 			<a href="{% url 'app:products_category' item.pk %}"
-		       {% if request.resolver_match.kwargs.category_id == item.pk %} class="active" {%endif%}>{{item.name}}
+		       {% if request.resolver_match.kwargs.category_id == item.pk or request.resolver_match.kwargs.pk == item.pk %}
+		       class="active" {%endif%}>{{item.name}}
 			</a>
 		</li>
 	{% endfor %}
