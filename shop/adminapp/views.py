@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from adminapp.forms import UserAdminEditForm, ProductEditForm
+from adminapp.forms import UserAdminEditForm, ProductEditForm, CategoryEditForm
 from authapp.forms import ShopUserRegisterForm
 from authapp.models import ShopUser
 from mainapp.models import Category, Product
@@ -68,7 +68,18 @@ def user_delete(request, pk):
 
 @user_passes_test(lambda user: user.is_superuser)
 def create_category(request):
-    return None
+    if request.method == "POST":
+        form = CategoryEditForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("adminapp:categories"))
+    else:
+        form = CategoryEditForm()
+    context = {
+        "form": form,
+        "title": "создание"
+    }
+    return render(request, "adminapp/category/category_form.html", context)
 
 
 @user_passes_test(lambda user: user.is_superuser)
@@ -81,12 +92,33 @@ def read_category(request):
 
 @user_passes_test(lambda user: user.is_superuser)
 def update_category(request, pk):
-    return None
+    category_item = get_object_or_404(Category, pk=pk)
+    if request.method == "POST":
+        form = CategoryEditForm(request.POST, instance=category_item)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("adminapp:categories"))
+    else:
+        form = CategoryEditForm(instance=category_item)
+    context = {
+        "form": form,
+        "category": category_item
+    }
+
+    return render(request, "adminapp/category/category_form.html", context)
 
 
 @user_passes_test(lambda user: user.is_superuser)
 def delete_category(request, pk):
-    return None
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == "POST":
+        category.is_active = False
+        category.save()
+        return HttpResponseRedirect(reverse("adminapp:categories"))
+    context = {
+        "object": category
+    }
+    return render(request, "adminapp/category/delete_confirm.html", context)
 
 
 @user_passes_test(lambda user: user.is_superuser)

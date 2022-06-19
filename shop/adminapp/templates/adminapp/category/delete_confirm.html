@@ -1,0 +1,14 @@
+{% extends "adminapp/base.html" %}
+{% block content %}
+<div class="row" >
+  <div class="col-md-3"></div>
+  <div class="col-md-6" >
+    <div style="padding:15px 0"><b>Уверены что хотите удалить категорию {{ object.name }} ?</b></div>
+      <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Да </button>
+        <a class="btn btn-info" href="{% url 'adminapp:categories' %}"> Нет </a>
+      </form>
+  </div>
+</div>
+{% endblock %}
