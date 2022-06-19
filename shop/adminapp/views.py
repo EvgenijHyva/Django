@@ -150,14 +150,38 @@ def product_create(request, category_pk):
 
 
 @user_passes_test(lambda user: user.is_superuser)
-def products_update(request, category_pk):
-    return None
+def products_update(request, product_pk):
+    product = get_object_or_404(Product, pk=product_pk)
+    if request.method == "POST":
+        product_form = ProductEditForm(request.POST, request.FILES, instance=product)
+        if product_form.is_valid():
+            item = product_form.save()
+            return HttpResponseRedirect(reverse("adminapp:products_list", args=[item.category.pk]))
+    else:
+        product_form = ProductEditForm(instance=product)
+    context = {
+        "form": product_form,
+        "category": product.category
+    }
+    return render(request, "adminapp/products/product_form.html", context)
 
 
 @user_passes_test(lambda user: user.is_superuser)
-def product_delete(request, category_pk):
-    return None
+def product_delete(request, product_pk):
+    product = get_object_or_404(Product, pk=product_pk)
+    if request.method == "POST":
+        product.is_active = False
+        product.save()
+        return HttpResponseRedirect(reverse("adminapp:products_list", args=[product.category.pk]))
+    context = {
+        "object": product
+    }
+    return render(request, "adminapp/products/delete_confirm.html", context)
 
 
-def products_detail(request, category_pk):
-    return None
+def products_detail(request, product_pk):
+    product = get_object_or_404(Product, pk=product_pk)
+    context = {
+        "object": product
+    }
+    return render(request, "adminapp/products/detail.html", context)

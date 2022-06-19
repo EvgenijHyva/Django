@@ -18,7 +18,7 @@ urlpatterns = (
     path("categories/products/read/<int:category_pk>/", adminapp.products_list, name="products_list"),
 
     path("products/create/<int:category_pk>/", adminapp.product_create, name="create_product"),
-    path("products/update/<int:category_pk>/", adminapp.products_update, name="update_product"),
-    path("products/delete/<int:category_pk>/", adminapp.product_delete, name="delete_product"),
-    path("products/detail/<int:category_pk>/", adminapp.products_detail, name="product_detail")
+    path("products/update/<int:product_pk>/", adminapp.products_update, name="update_product"),
+    path("products/delete/<int:product_pk>/", adminapp.product_delete, name="delete_product"),
+    path("products/detail/<int:product_pk>/", adminapp.products_detail, name="product_detail")
 )

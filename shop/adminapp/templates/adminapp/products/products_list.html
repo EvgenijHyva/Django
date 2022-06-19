@@ -9,6 +9,7 @@
 		</a>
 	</button>
 	{% for object in objects_list %}
+	{% if object.is_active %}
 	<div class="product_record">
 		<img
 				src="/media/{{object.image|default:'products_images/default.jpg'}}"
@@ -16,23 +17,25 @@
 		<div class="product_name">
 			{{ object.name|title }}
 		</div>
+
 		<div class="product_actions">
 			<button class="btn btn-info" style="color:black;">
-				<a href="{#% url 'adminapp:product_read' object.pk %#}">
+				<a href="{% url 'adminapp:product_detail' object.pk %}">
 				подробнее
 				</a>
 			</button>
 			<button class="btn btn-warning">
-				<a href="{#% url 'adminapp:product_update' object.pk %#}" style="color:darkblue;">
+				<a href="{% url 'adminapp:update_product' object.pk %}" style="color:darkblue;">
 				редактировать
 				</a>
 			</button>
 			<button class="btn btn-danger">
-				<a href="{#% url 'adminapp:product_delete' object.pk %#}" style="color:white;">
-				удалить
+				<a href="{% url 'adminapp:delete_product' object.pk %}" style="color:white;">
+				спрятать
 				</a>
 			</button>
 		</div>
+
 		<div class="summary">
 			<b>цена</b>
 			<p>{{ object.price }} руб</p>
@@ -43,6 +46,7 @@
 			{{ object.short_desc|title }}
 		</div>
 	</div>
+	{% endif %}
 	{% endfor%}
 </div>
 {% endblock %}
