@@ -1,0 +1,14 @@
+{% extends "adminapp/base.html" %}
+{% block content %}
+<div class="row" >
+  <div class="col-md-3"></div>
+  <div class="col-md-6" >
+    <div style="padding:15px 0"><b>Уверены что хотите заблокировать пользователя {{ object.get_full_name }} ({{ object.username }}) ?</b></div>
+      <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Да, баним </button>
+        <a class="btn btn-info" href="{% url 'adminapp:read_user' %}"> Нет, черт попутал </a>
+      </form>
+  </div>
+</div>
+{% endblock %}

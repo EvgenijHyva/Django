@@ -1,0 +1,23 @@
+{% extends "adminapp/base.html" %}
+{% block content %}
+<div class="row" >
+  <div class="col-md-3"></div>
+  <div class="col-md-6" style="border: solid black 1px; border-radius: 15px; padding: 10px">
+    <div class="card" style="width: 18rem;">
+      <img src="/media/{{object.image}}" class="card-img-top" alt="{{object.name}}">
+      <div class="card-body">
+        <h5 class="card-title">Товар: {{object.category.name}}: {{object.name}}</h5>
+        <p class="card-text">Описание: {{object.description}}</p>
+        <p class="card-text">Цена: {{object.price}}</p>
+        <p class="card-text">Скалад: {{object.quantity}}</p>
+        <p class="card-text">Последние обновления {{object.updated_at}}</p>
+        <div style="display:flex;">
+          <a class="btn btn-warning" href="{% url 'adminapp:update_product' object.category.pk %}" style="margin-right:10px"> Редактирование </a>
+          <a class="btn btn-info" href="{% url 'adminapp:products_list' object.category.pk %}" style="margin-right:10px"> Другие товары категории </a>
+          <a class="btn btn-danger" href="{% url 'adminapp:delete_product' object.category.pk %}" style="margin-right:10px"> Удалить </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

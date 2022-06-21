@@ -7,14 +7,14 @@ class AdminCategory(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", )
     ordering = ("name", "id",)
     search_fields = ("name", )
-    list_display = ("id", "name", "created_at", "updated_at")
+    list_display = ("id", "name", "created_at", "updated_at", "is_active")
 
 @admin.register(Product)
 class AdminProduct(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", )
     ordering = ("name", "id",)
     search_fields = ("name", "id", "price", )
-    list_display = ("category", "name", "price", "quantity", "updated_at", "id",)
+    list_display = ("category", "name", "price", "quantity", "updated_at", "id", "is_active")
 
 @admin.register(Contacts)
 class AdminContact(admin.ModelAdmin):

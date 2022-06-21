@@ -14,6 +14,11 @@
 				{% if request.resolver_match.url_name == "contacts" %} class="active" {% endif %}>контакты</a>
 		</li>
 		{% if user.is_authenticated %}
+		{% if user.is_superuser %}
+			<li>
+				<a href="{% url 'adminapp:read_user' %}">Админка</a>
+			</li>
+		{% endif %}
 		<li>
 			<a href="{% url 'auth:edit' %}">{{user.first_name|default:"пользователь"}}</a>
 		</li>
