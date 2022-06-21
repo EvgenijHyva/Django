@@ -1,6 +1,6 @@
 {% extends 'adminapp/base.html' %}
 {% load static %}
-
+{% load my_tags %}
 {% block content %}
 <div class="products_list">
 	<button class="new_product btn btn-success" >
@@ -8,11 +8,11 @@
 		новый продукт
 		</a>
 	</button>
-	{% for object in objects_list %}
+	{% for object in object.product_set.all %}
 	{% if object.is_active %}
 	<div class="product_record">
 		<img
-				src="/media/{{object.image|default:'products_images/default.jpg'}}"
+				src="{{ object.image|media_for_image }}"
 				alt="{{ object.name }}">
 		<div class="product_name">
 			{{ object.name|title }}
