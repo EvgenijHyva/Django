@@ -1,0 +1,15 @@
+<div class="pagination">
+    {% if products.has_previous %}
+        <a href="?page={{ products.previous_page_number }}"> <<пред </a>
+    {% endif %}
+    {% for num in products.paginator.page_range %}
+    {%if num == products.number %}
+        <span>{{ num }}</span>
+    {% else %}
+        <a href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+    {% if products.has_next %}
+        <a href="?page={{ products.next_page_number }}"> след>> </a>
+    {% endif %}
+</div>

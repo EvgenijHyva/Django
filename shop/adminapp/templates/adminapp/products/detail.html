@@ -1,10 +1,11 @@
 {% extends "adminapp/base.html" %}
+{% load my_tags %}
 {% block content %}
 <div class="row" >
   <div class="col-md-3"></div>
-  <div class="col-md-6" style="border: solid black 1px; border-radius: 15px; padding: 10px">
+  <div class="col-md-6" style="padding: 10px">
     <div class="card" style="width: 18rem;">
-      <img src="/media/{{object.image}}" class="card-img-top" alt="{{object.name}}">
+      <img src="{{object.image|media_for_image}}" class="card-img-top" alt="{{object.name}}" style="max-width:300px">
       <div class="card-body">
         <h5 class="card-title">Товар: {{object.category.name}}: {{object.name}}</h5>
         <p class="card-text">Описание: {{object.description}}</p>

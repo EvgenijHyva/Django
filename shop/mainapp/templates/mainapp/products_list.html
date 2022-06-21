@@ -1,6 +1,6 @@
 {% extends "mainapp/base.html" %}
 {% load static %}
-
+{% load my_tags %}
 {% block menu %}
 	<div class="hero-white">
 		{% include "mainapp/includes/menu.html" %}
@@ -12,6 +12,7 @@
 		<div class="links clearfix">
 			{% include "mainapp/includes/products_includes/subnav.html" %}
 		</div>
+		<div class="paginator"></div>
 		<div class="products">
 			<div class="title clearfix">
 				<h2>Категория: {{ category.name|title }} </h2>
@@ -21,7 +22,7 @@
 			{% for product in products %}
 			<div class="block">
 					<a href="{% url 'app:single_product' product.pk %}">
-						<img src="/media/{{product.image}}" style="width:370px; height:370px" alt="">
+						<img src="{{ product.image|media_for_image }}" style="width:370px; height:370px" alt="{{product.name}}">
 						<div class="text">
 							<img src="{% static 'img/icon-hover.png' %}" alt="img">
 							<h4>{{product.name}}</h4>
@@ -36,5 +37,6 @@
 		<h2>Похожие продукты</h2>
 		<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
 	</div>
+	{% include "mainapp/includes/inc_pagination.html" %}
 	{% include "mainapp/includes/products_includes/inc_same_products.html" %}
 {% endblock %}
